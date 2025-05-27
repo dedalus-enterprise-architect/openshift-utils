@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Simple check for required binaries
+for bin in oc jq; do
+  if ! command -v "$bin" >/dev/null; then
+    echo "Error: '$bin' is required but not found in PATH." >&2
+    echo "Please install '$bin' and ensure it is available in your PATH environment variable." >&2
+    exit 1
+  fi
+done
+
 # Define the namespace from the first argument
 NAMESPACE="$1"
 CLUSTER_NAME=$(oc get infrastructure cluster -o jsonpath='{.status.infrastructureName}')
