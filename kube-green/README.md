@@ -14,10 +14,10 @@ The SleepInfo resource can be configured with the following parameters:
 
 | Parameter | Description | Example |
 |----------|-------------|---------|
-| Name prefix | Prefix added to the SleepInfo resource name. This will transform a SleepInfo named "sleep-schedule" to "app-sleep-schedule" if namePrefix is set to "app-" | `app-` |
-| Namespace | Target namespace | `my-application` |
+| Name prefix | Prefix added to the SleepInfo resource name. This will transform a SleepInfo named "sleep-schedule" to "app-sleep-schedule" if namePrefix is set to "app-" | `dev-` |
+| Namespace | Target namespace | `dev-namespace` |
 | Weekdays | Days when sleep/wake schedule applies (1=Monday, 7=Sunday) | `1-5` |
-| SleepAt | Time to scale down resources | `18:00` |
+| SleepAt | Time to scale down resources | `19:00` |
 | WakeUpAt | Time to scale back up resources | `08:00` |
 | TimeZone | Timezone for sleep/wake schedule | `Europe/Rome` |
 
