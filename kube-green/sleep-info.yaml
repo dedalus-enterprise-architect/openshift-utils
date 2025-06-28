@@ -1,25 +1,16 @@
 apiVersion: kube-green.com/v1alpha1
 kind: SleepInfo
 metadata:
-  name: $(NAME)-sleep
-  namespace: $(NAMESPACE)
+  name: sleep-schedule
 spec:
-  weekdays: "$(WEEKDAYS)"
-  sleepAt: "$(SLEEP_AT)"
-  wakeUpAt: "$(WAKE_UP_AT)"
-  timeZone: "$(TIMEZONE)"
+  weekdays: "1-5"
+  sleepAt: "19:00"
+  wakeUpAt: "07:00" 
+  timeZone: "Europe/Rome"
   patches:
-    # DeploymentConfig resources
     - target:
         group: "apps.openshift.io"
         version: "v1"
         kind: "DeploymentConfig"
-      patchStrategy: "scale"
-      patchPath: "/spec/replicas"
-    # Regular Deployment resources
-    - target:
-        group: "apps"
-        version: "v1"
-        kind: "Deployment"
       patchStrategy: "scale"
       patchPath: "/spec/replicas"
